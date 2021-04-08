@@ -1,5 +1,5 @@
 import React from 'react';
-import { auth } from './firebase/firebase.utilities';
+import { auth, createUserProfileDocument, firestore } from './firebase/firebase.utilities';
 import { Switch, Route } from 'react-router-dom';
 import HomePage from './pages/homepage.component';
 import ShopPage from './pages/shop/shop.component';
@@ -19,11 +19,22 @@ class App extends React.Component {
   unSubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unSubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({
-        currentUser: user
-      })
-      console.log(user);
+    this.unSubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {    // async is used as it is asyncronous reffering api calls
+      if (userAuth) {                                                           // check if user is signed in or not
+        const userRef = await createUserProfileDocument(userAuth);              // await waits until expression is completed
+
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            currentUser:
+            {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          });
+          console.log(this.state);
+        });
+      }
+      this.setState({currentUser: userAuth});
     })
   }
 
