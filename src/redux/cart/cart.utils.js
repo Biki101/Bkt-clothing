@@ -5,7 +5,7 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
     );   //find returns first item found in array based on condition passed
     if(existingCartItem) {
         return (cartItems.map(cartItem => 
-            cartItem.id == cartItemToAdd.id ? {...cartItem, quantity: cartItem.quantity + 1} : cartItem));
+            cartItem.id === cartItemToAdd.id ? {...cartItem, quantity: cartItem.quantity + 1} : cartItem));
     }
 
     return [...cartItems, {...cartItemToAdd, quantity: 1}]; //quantity prop is attached if it does not exist
