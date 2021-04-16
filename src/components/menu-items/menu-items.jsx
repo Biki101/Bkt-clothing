@@ -15,4 +15,4 @@ const MenuItem = (props) => {
     </div>
 );}
 
-export default withRouter(MenuItem);
+export default withRouter(MenuItem);         //history.push , match props from withRouter 
