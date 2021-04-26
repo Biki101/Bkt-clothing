@@ -32,8 +32,8 @@ class App extends React.Component {
         });
       }
       setCurrentUser(userAuth);
-    })
-  }
+  });
+}
 
   componentWillUnmount() {
     this.unSubscribeFromAuth();
@@ -54,7 +54,7 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = createStructuredSelector({                                         // {user} becoz we are destruturing user()
+const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
 });
 

@@ -18,7 +18,7 @@ const CollectionPage = ({ collection }) => {
     );
 }
 
-const mapStateToProps = (state, ownProps) => ({ //history, location, match are ownProps
+const mapStateToProps = (state, ownProps) =>  ({           //history, location, match are ownprops                    
     collection: selectCollection(ownProps.match.params.collectionId)(state)
 });
 
