@@ -17,4 +17,8 @@ export const removeItem = item => ({
 export const decreaseItem = item => ({
      type: CartActionType.Decrease_Item,
      payload: item
-})
+});
+
+export const emptyCart = () => ({
+     type: CartActionType.Clear_Cart
+});
