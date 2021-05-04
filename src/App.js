@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { checkUserSession } from './redux/user/user.action';
 
-import './App.css';
+import { GlobalStyle } from './global.styles';
 import { selectCurrentUser } from './redux/user/user.selector';
 import CheckOutPage from './pages/checkout/checkout';
 
@@ -18,6 +18,7 @@ const App = ({ checkUserSession, currentUser }) => {
   }, [checkUserSession]);
   return (
     <div className="App">
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route exact path='/' component={HomePage} />

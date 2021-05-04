@@ -2,6 +2,10 @@
     display: flex;
     flex-direction: column;
     width: 380px;
+    // @media screen and (max-width: 800px) {
+    //     margin-top: 30px;
+    //     object-fit: cover;
+    // }
 
     .title{
         margin: 10px 0px; //top-bottom  left-right
